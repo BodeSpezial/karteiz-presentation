@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>reveal.js</title>
+		<title>Karteiz</title>
 
 		<link rel="stylesheet" href="dist/reset.css">
 		<link rel="stylesheet" href="dist/reveal.css">
@@ -16,8 +16,113 @@
 	<body>
 		<div class="reveal">
 			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
+                <!---->
+                <!-- Slides begin -->
+                <!---->
+
+				<section>Karteiz</section>
+
+                <section id="inhalt" >
+                    Inhalt
+
+                    <p>
+                        <a href="#/frontend">Frontend</a>
+                    </p>
+                    <p>
+                        <a href="#/backend">Backend</a>
+                    </p>
+                    <p>
+                        <a href="#/dokumentation">Dokumentaion</a>
+                    </p>
+                </section>
+
+                <section id="frontend" >
+                    Frontend
+                    <p>
+                    Svelte. Yay.
+                    </p>
+                </section>
+
+                <section>
+                    Kurzer Walkthrough
+                    <p>
+                        <a href="https://wander-5h8-staging.begin.app" target="_blank">Karteiz</a>
+                    </p>
+                </section>
+
+                    <section>
+                        Netzwerktab oder Codebeispiel: Hier wird mit dem Backend kommuniziert
+
+                        <p>
+                            <a href="#/inhalt" class="navigate-naxt">Inhalt</a>
+                        </p>
+                    </section>
+                <section id="backend" >
+                    Backend
+
+                    <section>
+                        API
+                    </section>
+                    
+                    <section>
+                        Java. Yay.
+                    </section>
+
+                    <section>
+                        Struktur
+                    </section>
+
+                    <section>
+                        <pre>
+                        <code data-trim data-noescape data-line-numbers="3|4-8">
+                            @Override
+                            public DefaultResult editCard(EditCardRequest request) {
+                                DefaultResult result = new DefaultResult();
+                                if(!loginService.checkUserExists(request.getUserName())) {
+                                    result.setErrorCode(1);
+                                    result.setErrorMessage("User does not exist!");
+                                    return result;
+                                }
+                                
+                                CardWithOwner card = cardService.getCard(request.getCardId());
+                                if(!card.getOwnerName().equals(request.getUserName())) {
+                                    result.setErrorCode(2);
+                                    result.setErrorMessage("User " + request.getUserName() + " is not the owner of card " + request.getCardId());
+                                    return result;
+                                }
+                                
+                                if(!cardService.editCard(request)) {
+                                    result.setErrorCode(3);
+                                    result.setErrorMessage("Error editing card " + request.getCardId());
+                                    return result;
+                                }
+                                
+                                return result;
+                            }
+                        </code>
+                        </pre>
+                    </section>
+                </section>
+
+                <section id="dokumentation" >
+                    Dokumentaion
+
+                    <section>
+                        Übersicht
+                    </section>
+
+                    <section>
+                        Asciidoc
+                    </section>
+                </section>
+
+				<section data-background-image="https://media.giphy.com/media/Vuw9m5wXviFIQ/giphy.gif" data-background-repeat="repeat"
+                    >
+                    Vielen Dank für eure Aufmerksamkeit.</section>
+
+                <!---->
+                <!-- Slides end -->
+                <!---->
 			</div>
 		</div>
 
